@@ -1,25 +1,22 @@
-
-
 # M7 UI Library
 
-Welcome to **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
+## **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
-## Important
+Here's a Discord Server where we can help each other improve **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
+
+## Importnat
 This UI library is in **BETA** release. It is under development.
 
-Found an issue? Make a **[`Post`](https://github.com/M7ilan/M7-UI-Library/issues/new)** and Let me know.
+Found an issue? Let me know in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
-## Documentation
-Here's a **[`Documentation`](https://github.com/M7ilan/M7-UI-Library/blob/main/Documentation.md)** of the **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
+## **[`Documentation`](https://github.com/M7ilan/M7-UI-Library/blob/main/Documentation.md)**
+Here's a Documentation of the **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
 
 ## Features
 - [x] Button
 - [x] Toggle
-- [x] Dropdown + search bar
+- [x] Dropdown + Search Bar
 - [x] Keybind
 - [x] Slider
 
-**Let me know if you want new features to be added.**
-
-## **[`Discord Server`](https://discord.gg/PUWk3xwsjk)** 
-Here's a place where we can Support/Discuss and help each other improving **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)** 
+Let me know if you want new features to be added to **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)** in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
