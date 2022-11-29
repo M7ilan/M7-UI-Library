@@ -10,7 +10,7 @@ This UI library is in **BETA** release. It is under development.
 Found an issue? Let me know in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
 ## **[`Documentation`](https://github.com/M7ilan/M7-UI-Library/blob/main/Documentation.md)**
-Here's a Documentation of the **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
+Here's a Documentation of the M7 UI Library.
 
 ## Features
 - [x] Button
