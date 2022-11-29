@@ -18,7 +18,7 @@ local Tab = Window:CreateTab("Tab Name")
 
 ## Create Section
 ```lua
-local Section = HomeTab:CreateSection("Section Name")
+local Section = Tab:CreateSection("Section Name")
 ```
 
 ## Create Label
