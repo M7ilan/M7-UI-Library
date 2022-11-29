@@ -60,8 +60,9 @@ task.spawn(function()
     end
 
     for _, Connection in pairs(M7Lib.Callbacks) do
-        Connection:Disconnect()
+        Connection(false)
     end
+    Callbacks = nil
 end)
 
 function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLogo: string, CustomTheme: Color3)
