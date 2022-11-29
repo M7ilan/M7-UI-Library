@@ -8,7 +8,7 @@ local M7Lib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/M7ilan
 
 ## Create Window
 ```lua
-local Window = M7Lib:CreateWindow("Title", "Version", "Logo ID", "Theme")
+local Window = M7Lib:CreateWindow("Title", "Version", "Logo ID", Color3.fromRGB(50, 200, 100))
 ```
 
 ## Create Tab
