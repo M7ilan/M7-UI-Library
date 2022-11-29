@@ -838,7 +838,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 LabelFrame.Parent = ItemsFrame
                 LabelFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 LabelFrame.BackgroundTransparency = 0.8
-                LabelFrame.Size = UDim2.new(1, 0, 0, 40)
+                LabelFrame.Size = UDim2.new(1, 0, 0, 20)
             
                 UICorner.Parent = LabelFrame
             
