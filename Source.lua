@@ -642,6 +642,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 --
                 ButtonName = ButtonName or "Button"
                 Callback = Callback or function() end
+                table.insert(M7Lib.Callbacks, Callback)
                 --
                 
                 local ButtonFrame = Instance.new("Frame")
@@ -712,7 +713,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 ToggleName = ToggleName or "Toggle"
                 DefaultToggle = DefaultToggle or false
                 Callback = Callback or function() end
-                table.insert(Callbacks, Callback)
+                table.insert(M7Lib.Callbacks, Callback)
                 --
             
                 local ToggleFrame = Instance.new("Frame")
@@ -825,6 +826,9 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             end
 
             function ItemsLib:Label(LabelName)
+                --
+                LabelName = LabelName or "Label"
+                --
                 local LabelFrame = Instance.new("Frame")
                 local UICorner = Instance.new("UICorner")
                 local LabelText = Instance.new("TextLabel")
@@ -876,6 +880,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 KeyBindInfo = KeyBindInfo or "KeyBind"
                 DefaultKeyBind = DefaultKeyBind.Name or Enum.KeyCode.E.Name
                 Callback = Callback or function() end
+                table.insert(M7Lib.Callbacks, Callback)
                 --
             
                 local KeyBindItem = Instance.new("Frame")
@@ -1109,6 +1114,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 DropdownInfo = DropdownInfo or "Dropdown"
                 DropdownItems = DropdownItems or {}
                 Callback = Callback or function () end
+                table.insert(M7Lib.Callbacks, Callback)
                 --
                 
                 local DropdownItem = Instance.new("Frame")
