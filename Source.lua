@@ -1,4 +1,4 @@
-local M7ilanLib = { 
+local M7Lib = { 
     Connections = {}
 }
 
@@ -8,58 +8,58 @@ local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse()
 local viewPort = workspace.CurrentCamera.ViewportSize
 
-local M7ilanUI = Instance.new("ScreenGui")
-M7ilanUI.Name = "M7ilanUI"
+local M7UI = Instance.new("ScreenGui")
+M7UI.Name = "M7UI"
 
 if syn then
-    syn.protect_gui(M7ilanUI)
-    M7ilanUI.Parent = game:GetService("CoreGui")
+    syn.protect_gui(M7UI)
+    M7UI.Parent = game:GetService("CoreGui")
 else
-    M7ilanUI.Parent = gethui() or game:GetService("CoreGui")
+    M7UI.Parent = gethui() or game:GetService("CoreGui")
 end
 
 if gethui then
     for _, v in ipairs(gethui():GetChildren()) do
-        if v.Name == M7ilanUI.Name and v ~= M7ilanUI then
+        if v.Name == M7UI.Name and v ~= M7UI then
             v:Destroy()
         end
     end
 else
     for _, v in ipairs(game.CoreGui:GetChildren()) do
-        if v.Name == M7ilanUI.Name and v ~= M7ilanUI then
+        if v.Name == M7UI.Name and v ~= M7UI then
             v:Destroy()
         end
     end
 end
 
-function M7ilanLib:IsRunning()
+function M7Lib:IsRunning()
     if gethui then
-        return M7ilanUI.Parent == gethui()
+        return M7UI.Parent == gethui()
     else
-        return M7ilanUI.Parent == game:GetService("CoreGui")
+        return M7UI.Parent == game:GetService("CoreGui")
     end
 end
 
 local function AddConnection(Signal, Function)
-    if (not M7ilanLib:IsRunning()) then
+    if (not M7Lib:IsRunning()) then
         return
     end
     local SignalConnect = Signal:Connect(Function)
-    table.insert(M7ilanLib.Connections, SignalConnect)
+    table.insert(M7Lib.Connections, SignalConnect)
     return SignalConnect
 end
 
 task.spawn(function()
-    while (M7ilanLib:IsRunning()) do
+    while (M7Lib:IsRunning()) do
         task.wait()
     end
     
-    for _, Connection in pairs(M7ilanLib.Connections) do
+    for _, Connection in pairs(M7Lib.Connections) do
         Connection:Disconnect()
     end
 end)
 
-function M7ilanLib:CreateWindow(WindowName: string, WindowVersion: string, WindowLogo: string, CustomTheme: Color3)
+function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLogo: string, CustomTheme: Color3)
     --
     WindowName = WindowName or "M7 UI Lib (Beta)"
     WindowVersion = WindowVersion or game.Players.LocalPlayer.Name
@@ -96,12 +96,12 @@ function M7ilanLib:CreateWindow(WindowName: string, WindowVersion: string, Windo
     local PagesHolder = Instance.new("Frame")
     local DropShadow = Instance.new("ImageLabel")
 
-    M7ilanUI.Parent = game:GetService("CoreGui")
-    M7ilanUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    M7ilanUI.IgnoreGuiInset = true
+    M7UI.Parent = game:GetService("CoreGui")
+    M7UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    M7UI.IgnoreGuiInset = true
 
     MainFrame.Name = "MainFrame"
-    MainFrame.Parent = M7ilanUI
+    MainFrame.Parent = M7UI
     MainFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
     MainFrame.Size = UDim2.new(0, 600, 0, 400)
     MainFrame.Position = UDim2.fromOffset((viewPort.X / 2) - (MainFrame.Size.X.Offset / 2), (viewPort.Y / 2) - (MainFrame.Size.Y.Offset / 2))
@@ -226,10 +226,10 @@ function M7ilanLib:CreateWindow(WindowName: string, WindowVersion: string, Windo
 
     AddConnection(UIS.InputBegan, function(input)
         if input.KeyCode.Name == KeyBindVisibility then
-            if M7ilanUI.Enabled == true then
-                M7ilanUI.Enabled = false
+            if M7UI.Enabled == true then
+                M7UI.Enabled = false
             else
-                M7ilanUI.Enabled = true
+                M7UI.Enabled = true
             end
         end
     end)
@@ -386,8 +386,8 @@ function M7ilanLib:CreateWindow(WindowName: string, WindowVersion: string, Windo
     DropShadow.ScaleType = Enum.ScaleType.Slice
     DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
-    function M7ilanLib:DestroyUI()
-        M7ilanUI:Destroy()
+    function M7Lib:DestroyUI()
+        M7UI:Destroy()
     end
 
 
@@ -1349,4 +1349,4 @@ function M7ilanLib:CreateWindow(WindowName: string, WindowVersion: string, Windo
     end
     return TabsLib
 end
-return M7ilanLib
+return M7Lib
