@@ -13,50 +13,50 @@ local Window = M7Lib:CreateWindow("Title", "Version", "Logo ID", "Theme")
 
 ## Create Tab
 ```lua
-local HomeTab = Window:CreateTab("Tab Name")
+local Tab = Window:CreateTab("Tab Name")
 ```
 
 ## Create Section
 ```lua
-local GameSection = HomeTab:CreateSection("Section Name")
+local Section = HomeTab:CreateSection("Section Name")
 ```
 
 ## Create Label
 ```lua
-GameSection:Label("Label")
+Section:Label("Label")
 ```
 
 ## Create Button
 ```lua
-GameSection:Button("Button", function()
+Section:Button("Button", function()
     print("Button Pressed.")
 end)
 ```
 
 ## Create Toggle
 ```lua
-GameSection:Toggle("Toggle me", false, function(value)
+Section:Toggle("Toggle me", false, function(value)
     print(value)
 end)
 ```
 
 ## Create Dropdown
 ```lua
-GameSection:Dropdown("Difficulty", {"Easy", "Medium", "Hard"}, function(Difficulty)
+Section:Dropdown("Difficulty", {"Easy", "Medium", "Hard"}, function(Difficulty)
     print(Difficulty)
 end)
 ```
 
 ## Create Keybind
 ```lua
-GameSection:KeyBind("Print KeyBind", Enum.KeyCode.M, function(input)
+Section:KeyBind("Print KeyBind", Enum.KeyCode.M, function(input)
     print("Keybind Pressed.")
 end)
 ```
 
 ## Create Slider
 ```lua
-GameSection:Slider("Speed", 100, 16, function(value)
+Section:Slider("Speed", 100, 16, function(value)
     game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").WalkSpeed = value
 end)
 ```
