@@ -701,9 +701,10 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             
             end
 
-            function ItemsLib:Toggle(ToggleName, Callback)
+            function ItemsLib:Toggle(ToggleName, DefaultToggle, Callback)
                 --
                 ToggleName = ToggleName or "Toggle"
+                DefaultToggle = DefaultToggle or false
                 Callback = Callback or function() end
                 --
             
@@ -769,7 +770,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 UIStroke.Thickness = 3
                 UIStroke.Transparency = 0.5
             
-                local on = false
+                local on = DefaultToggle
                 local ToggleDelay = false
                 AddConnection(ToggleButton.MouseButton1Click, function()
                     if not ToggleDelay then
