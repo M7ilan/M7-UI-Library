@@ -2,7 +2,7 @@
 
 ## **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
-Here's a Discord Server where we can help each other improve **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)**
+Here's a Discord Server where we can help each other improve M7 UI Library
 
 ## Importnat
 This UI library is in **BETA** release. It is under development.
@@ -19,4 +19,4 @@ Here's a Documentation of the **[`M7 UI Library`](https://github.com/M7ilan/M7-U
 - [x] Keybind
 - [x] Slider
 
-Let me know if you want new features to be added to **[`M7 UI Library`](https://github.com/M7ilan/M7-UI-Library)** in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
+Let me know if you want new features to be added to M7 UI Library in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
