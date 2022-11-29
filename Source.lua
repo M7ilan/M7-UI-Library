@@ -1,5 +1,6 @@
 local M7Lib = { 
-    Connections = {}
+    Connections = {},
+    Callbacks = {}
 }
 
 local TweenService = game:GetService("TweenService")
@@ -57,6 +58,11 @@ task.spawn(function()
     for _, Connection in pairs(M7Lib.Connections) do
         Connection:Disconnect()
     end
+
+    for _, Connection in pairs(M7Lib.Callbacks) do
+        Connection(false)
+    end
+    Callbacks = nil
 end)
 
 function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLogo: string, CustomTheme: Color3)
@@ -706,6 +712,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 ToggleName = ToggleName or "Toggle"
                 DefaultToggle = DefaultToggle or false
                 Callback = Callback or function() end
+                table.insert(Callbacks, Callback)
                 --
             
                 local ToggleFrame = Instance.new("Frame")
