@@ -1,6 +1,5 @@
 local M7Lib = { 
-    Connections = {},
-    Callbacks = {}
+    Connections = {}
 }
 
 local TweenService = game:GetService("TweenService")
@@ -58,11 +57,6 @@ task.spawn(function()
     for _, Connection in pairs(M7Lib.Connections) do
         Connection:Disconnect()
     end
-
-    for _, Connection in pairs(M7Lib.Callbacks) do
-        Connection(false)
-    end
-    Callbacks = nil
 end)
 
 function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLogo: string, CustomTheme: Color3)
@@ -642,7 +636,6 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 --
                 ButtonName = ButtonName or "Button"
                 Callback = Callback or function() end
-                table.insert(Callbacks, Callback)
                 --
                 
                 local ButtonFrame = Instance.new("Frame")
@@ -713,7 +706,6 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 ToggleName = ToggleName or "Toggle"
                 DefaultToggle = DefaultToggle or false
                 Callback = Callback or function() end
-                table.insert(Callbacks, Callback)
                 --
             
                 local ToggleFrame = Instance.new("Frame")
@@ -826,9 +818,6 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             end
 
             function ItemsLib:Label(LabelName)
-                --
-                LabelName = LabelName or "Label"
-                --
                 local LabelFrame = Instance.new("Frame")
                 local UICorner = Instance.new("UICorner")
                 local LabelText = Instance.new("TextLabel")
@@ -880,7 +869,6 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 KeyBindInfo = KeyBindInfo or "KeyBind"
                 DefaultKeyBind = DefaultKeyBind.Name or Enum.KeyCode.E.Name
                 Callback = Callback or function() end
-                table.insert(Callbacks, Callback)
                 --
             
                 local KeyBindItem = Instance.new("Frame")
@@ -1114,7 +1102,6 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 DropdownInfo = DropdownInfo or "Dropdown"
                 DropdownItems = DropdownItems or {}
                 Callback = Callback or function () end
-                table.insert(Callbacks, Callback)
                 --
                 
                 local DropdownItem = Instance.new("Frame")
