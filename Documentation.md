@@ -13,12 +13,12 @@ local Window = M7Lib:CreateWindow("Title", "Version", "Logo ID", Color3.fromRGB(
 
 ## Create Tab
 ```lua
-local Tab = Window:CreateTab("Tab Name")
+local Tab = Window:CreateTab("Tab")
 ```
 
 ## Create Section
 ```lua
-local Section = Tab:CreateSection("Section Name")
+local Section = Tab:CreateSection("Section")
 ```
 
 ## Create Label
@@ -50,7 +50,7 @@ end)
 ## Create Keybind
 ```lua
 Section:KeyBind("Print KeyBind", Enum.KeyCode.M, function(input)
-    print("Keybind Pressed.")
+    print(tostring(input).." Keybind Pressed.")
 end)
 ```
 
