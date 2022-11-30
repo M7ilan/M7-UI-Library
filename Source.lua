@@ -518,9 +518,10 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
         
         local SectionsLib = {}
         
-        function SectionsLib:CreateSection(SectionName)
+        function SectionsLib:CreateSection(SectionName, SearchBar)
             --
             SectionName = SectionName or "Section"
+            SearchBar = SearchBar or false
             --
             
             local SectionFrame = Instance.new("Frame")
@@ -532,6 +533,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             local SectionButton = Instance.new("TextButton")
             local SectionImage = Instance.new("ImageLabel")
             local SectionText = Instance.new("TextLabel")
+            local SeactionSearchBarFrame = Instance.new("Frame")
             
             SectionFrame.Name = SectionName.." Section"
             SectionFrame.Parent = Page
@@ -596,6 +598,11 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             SectionText.TextSize = 20.000
             SectionText.TextWrapped = true
             SectionText.TextXAlignment = Enum.TextXAlignment.Left
+
+            SeactionSearchBarFrame.Name = "Search Bar"
+            SeactionSearchBarFrame.Parent = SectionFrame
+            SeactionSearchBarFrame.Position = UDim2.new(0, 0, 0, 0)
+            SeactionSearchBarFrame.Size = UDim2.new(1, 0, 0, 40)
             
             -- Section Manager
             AddConnection(UIListLayout.Changed, function() -- ItemsFrame UpdateSize
