@@ -600,7 +600,8 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             SectionText.TextXAlignment = Enum.TextXAlignment.Left
 
             SeactionSearchBarFrame.Name = "Search Bar"
-            SeactionSearchBarFrame.Parent = SectionFrame
+            SeactionSearchBarFrame.Parent = ItemsFrame
+            SeactionSearchBarFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             SeactionSearchBarFrame.Position = UDim2.new(0, 0, 0, 0)
             SeactionSearchBarFrame.Size = UDim2.new(1, 0, 0, 40)
             
