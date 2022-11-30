@@ -534,6 +534,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             local SectionImage = Instance.new("ImageLabel")
             local SectionText = Instance.new("TextLabel")
             local SeactionSearchBarFrame = Instance.new("Frame")
+            local UICorner_1 = Instance.new("UICorner")
             
             SectionFrame.Name = SectionName.." Section"
             SectionFrame.Parent = Page
@@ -601,9 +602,12 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
 
             SeactionSearchBarFrame.Name = "Search Bar"
             SeactionSearchBarFrame.Parent = ItemsFrame
-            SeactionSearchBarFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            SeactionSearchBarFrame.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
             SeactionSearchBarFrame.Position = UDim2.new(0, 0, 0, 0)
             SeactionSearchBarFrame.Size = UDim2.new(1, 0, 0, 40)
+
+            UICorner_1.Parent = SeactionSearchBarFrame
+            UICorner_1.CornerRadius = UDim.new(1, 0)
             
             -- Section Manager
             AddConnection(UIListLayout.Changed, function() -- ItemsFrame UpdateSize
