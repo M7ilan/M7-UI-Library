@@ -15,7 +15,8 @@ Here's a Documentation of the M7 UI Library.
 ## Features
 - [x] Button
 - [x] Toggle
-- [x] Dropdown + Search Bar
+- [x] Dropdown
+- [x] Search Bar
 - [x] Keybind
 - [x] Slider
 
