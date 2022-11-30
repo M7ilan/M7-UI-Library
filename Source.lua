@@ -632,7 +632,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             
             -- Section Manager
             AddConnection(UIListLayout.Changed, function() -- ItemsFrame UpdateSize
-                ItemsFrame.Size = UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+                ItemsFrame.Size = UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 40)
             end)
 
             local Dropped = false
@@ -655,7 +655,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
 
             AddConnection(UIListLayout.Changed, function(property) -- SectionFrame UpdateSize
                 if Dropped and property == "AbsoluteContentSize" then
-                    SectionFrame:TweenSize(UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 95), "Out", "Quint", 0.5, true)
+                    TweenService:Create(SectionFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out, 0, false, 0), {Size = UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 95)}):Play()
                 end
             end)
 
