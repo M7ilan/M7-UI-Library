@@ -528,10 +528,14 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             local UIPadding = Instance.new("UIPadding")
             local UICorner = Instance.new("UICorner")
             local ItemsFrame = Instance.new("Frame")
+            local SectionItems = Instance.new("Frame")
             local UIListLayout = Instance.new("UIListLayout")
             local SectionButton = Instance.new("TextButton")
             local SectionImage = Instance.new("ImageLabel")
             local SectionText = Instance.new("TextLabel")
+            local SeactionSearchBox = Instance.new("TextBox")
+            local UICorner_1 = Instance.new("UICorner")
+            local UIPadding_1 = Instance.new("UIPadding")
             
             SectionFrame.Name = SectionName.." Section"
             SectionFrame.Parent = Page
@@ -558,8 +562,14 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             ItemsFrame.BackgroundTransparency = 1
             ItemsFrame.Position = UDim2.new(0, 0, 0, 40)
             ItemsFrame.Visible = true
+
+            SectionItems.Name = "Items"
+            SectionItems.Parent = ItemsFrame
+            SectionItems.Position = UDim2.new(0, 0 ,0, 40)
+            SectionItems.Size = UDim2.new(1, 0 ,1, 0)
+            SectionItems.BackgroundTransparency = 1
             
-            UIListLayout.Parent = ItemsFrame
+            UIListLayout.Parent = SectionItems
             UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
             UIListLayout.Padding = UDim.new(0, 10)
             
@@ -596,6 +606,29 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             SectionText.TextSize = 20.000
             SectionText.TextWrapped = true
             SectionText.TextXAlignment = Enum.TextXAlignment.Left
+
+            SeactionSearchBox.Name = "Search Bar"
+            SeactionSearchBox.Parent = ItemsFrame
+            SeactionSearchBox.BackgroundColor3 = Color3.fromRGB(40, 43 ,48)
+            SeactionSearchBox.Position = UDim2.new(0, 0, 0, 0)
+            SeactionSearchBox.Size = UDim2.new(1, 0, 0, 30)
+            SeactionSearchBox.Font = Enum.Font.GothamMedium
+            SeactionSearchBox.Text = ""
+            SeactionSearchBox.PlaceholderText = "Search"
+            SeactionSearchBox.PlaceholderColor3 = Color3.fromRGB(30, 120, 60)
+            SeactionSearchBox.TextColor3 = Color3.fromRGB(50, 200, 100)
+            SeactionSearchBox.TextScaled = true
+            SeactionSearchBox.TextSize = 20.000
+            SeactionSearchBox.TextWrapped = true
+
+            UICorner_1.Parent = SeactionSearchBox
+            UICorner_1.CornerRadius = UDim.new(1, 0)
+
+            UIPadding_1.Parent = SeactionSearchBox
+            UIPadding_1.PaddingBottom = UDim.new(0, 5)
+            UIPadding_1.PaddingLeft = UDim.new(0, 10)
+            UIPadding_1.PaddingRight = UDim.new(0, 10)
+            UIPadding_1.PaddingTop = UDim.new(0, 5)
             
             -- Section Manager
             AddConnection(UIListLayout.Changed, function() -- ItemsFrame UpdateSize
@@ -605,12 +638,12 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             local Dropped = false
             AddConnection(SectionButton.Activated, function()
                 if SectionFrame.Size == UDim2.new(1, 0, 0, 40) and not Dropped then
-                    SectionFrame:TweenSize(UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 55), "Out", "Quint", 0.5)
+                    SectionFrame:TweenSize(UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 95), "Out", "Quint", 0.5)
                     TweenService:Create(SectionImage, tweenInfo, {Rotation = SectionImage.Rotation + 180}):Play()
 
                     task.wait(0.5)
                     Dropped = true
-                elseif SectionFrame.Size == UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 55) and Dropped then
+                elseif SectionFrame.Size == UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 95) and Dropped then
                     SectionFrame:TweenSize(UDim2.new(1, 0, 0, 40), "Out", "Quint", 0.5)
                     TweenService:Create(SectionImage, tweenInfo, {Rotation = SectionImage.Rotation + 180}):Play()
 
@@ -620,9 +653,9 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 end
             end)
 
-            AddConnection(UIListLayout.Changed, function(property) -- ItemsFrame UpdateSize
+            AddConnection(UIListLayout.Changed, function(property) -- SectionFrame UpdateSize
                 if Dropped and property == "AbsoluteContentSize" then
-                    SectionFrame.Size = UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 55)
+                    SectionFrame:TweenSize(UDim2.new(1, 0, 0, UIListLayout.AbsoluteContentSize.Y + 95), "Out", "Quint", 0.5, true)
                 end
             end)
 
@@ -632,6 +665,28 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
             AddConnection(SectionFrame.MouseLeave, function()
                 TweenService:Create(UIStroke, tweenInfo, {Transparency = 1}):Play()
             end)
+            --
+            -- Section SearchBar Manager
+            AddConnection(SeactionSearchBox.Changed, function(property)
+                if property == "Text" then
+                    local search = string.lower(SeactionSearchBox.Text)
+                    for i, v in pairs(SectionItems:GetDescendants()) do
+                        if v:IsA("TextLabel") then
+                            if search ~= "" then
+                                local item = string.lower(v.Text)
+                                if string.find(item, search) then
+                                    v.Parent.Visible = true
+                                else
+                                    v.Parent.Visible = false
+                                end
+                            else
+                                v.Parent.Visible = true
+                            end
+                        end
+                    end
+                end
+            end)
+            --
             --
 
 
@@ -651,7 +706,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local ButtonItem = Instance.new("TextButton")
                 
                 ButtonFrame.Name = "Button Item"
-                ButtonFrame.Parent = ItemsFrame
+                ButtonFrame.Parent = SectionItems
                 ButtonFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 ButtonFrame.BackgroundTransparency = 0.8
                 ButtonFrame.Size = UDim2.new(1, 0, 0, 40)
@@ -726,7 +781,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local UIStroke = Instance.new("UIStroke")
             
                 ToggleFrame.Name = "Toggle Item"
-                ToggleFrame.Parent = ItemsFrame
+                ToggleFrame.Parent = SectionItems
                 ToggleFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 ToggleFrame.Size = UDim2.new(1, 0, 0, 40)
                 ToggleFrame.BackgroundTransparency = 0.8
@@ -835,7 +890,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local UIPadding = Instance.new("UIPadding")
             
                 LabelFrame.Name = "Label Item"
-                LabelFrame.Parent = ItemsFrame
+                LabelFrame.Parent = SectionItems
                 LabelFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 LabelFrame.BackgroundTransparency = 0.8
                 LabelFrame.Size = UDim2.new(1, 0, 0, 20)
@@ -894,7 +949,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local KeyBindText = Instance.new("TextLabel")
             
                 KeyBindItem.Name = "KeyBind Item"
-                KeyBindItem.Parent = ItemsFrame
+                KeyBindItem.Parent = SectionItems
                 KeyBindItem.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 KeyBindItem.BackgroundTransparency = 0.800
                 KeyBindItem.Size = UDim2.new(1, 0, 0, 40)
@@ -1007,7 +1062,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local UICorner_2 = Instance.new("UICorner")
                 
                 SliderItem.Name = "Slider Item"
-                SliderItem.Parent = ItemsFrame
+                SliderItem.Parent = SectionItems
                 SliderItem.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 SliderItem.BackgroundTransparency = 0.800
                 SliderItem.Size = UDim2.new(1, 0, 0, 50)
@@ -1132,7 +1187,7 @@ function M7Lib:CreateWindow(WindowName: string, WindowVersion: string, WindowLog
                 local UIPadding_1 = Instance.new("UIPadding")
                 
                 DropdownItem.Name = "Dropdown Item"
-                DropdownItem.Parent = ItemsFrame
+                DropdownItem.Parent = SectionItems
                 DropdownItem.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                 DropdownItem.BackgroundTransparency = 0.8
                 DropdownItem.ClipsDescendants = true
