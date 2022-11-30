@@ -1,4 +1,4 @@
-local M7Lib = { 
+local M7Lib = {
     Connections = {},
     Callbacks = {}
 }
