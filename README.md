@@ -19,5 +19,6 @@ Here's a Documentation of the M7 UI Library.
 - [x] Search Bar
 - [x] Keybind
 - [x] Slider
+- [ ] Color Picker
 
 Let me know if you want new features to be added to M7 UI Library in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
