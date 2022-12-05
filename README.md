@@ -24,4 +24,4 @@ Here's a Documentation of the M7 UI Library.
 Let me know if you want new features to be added to M7 UI Library in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
 # Preview
-![image](https://user-images.githubusercontent.com/81147447/205706668-5aedba96-f4de-494c-8d03-97ad8874fc1c.png)
+![image](https://user-images.githubusercontent.com/81147447/205706771-4f18d84e-54a5-4d99-b64c-172e9f923a94.png)
