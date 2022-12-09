@@ -4,7 +4,7 @@
 
 Here's a Discord Server where we can help each other improve M7 UI Library.
 
-Found an issue? Let me know in **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
+Found an issue? Let me know in Discord Server.
 
 ## **[Documentation](https://github.com/M7ilan/M7-UI-Library/blob/main/Documentation.md)**
 Here's a Documentation of the M7 UI Library.
