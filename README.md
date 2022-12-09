@@ -24,4 +24,4 @@ Here's a Documentation of the M7 UI Library.
 - [x] Color Picker
 - [x] Notification
 
-Let me know if you want new features to be added to M7 UI Library in the **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
+Let me know if you want new features to be added to M7 UI Library in the Discord Server.
