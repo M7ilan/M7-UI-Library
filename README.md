@@ -12,11 +12,17 @@ Here's a Documentation of the M7 UI Library.
 ## Features
 - [x] Button
 - [x] Toggle
-- [x] Dropdown
-- [x] Search Bar
 - [x] Keybind
+- [x] Paragraph
 - [x] Slider
-- [ ] Color Picker
+- [x] Dropdown
+- [x] Elements Dropdown
+- [x] Add/Remove items in Dropdown
+- [ ] Images Dropdown
+- [x] TextBox
+- [x] Search Bar
+- [x] Color Picker
+- [x] Notification
 
 Let me know if you want new features to be added to M7 UI Library in our **[`Discord Server`](https://discord.gg/PUWk3xwsjk)**
 
