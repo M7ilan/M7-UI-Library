@@ -126,7 +126,7 @@ Section:Slider({
     Min = 16,
     Max = 100,
     Callback = function(e)
-        game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").WalkSpeed = e
+        print(e)
     end
 })
 ```
