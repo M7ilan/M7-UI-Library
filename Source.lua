@@ -2145,9 +2145,7 @@ function M7Lib:Window(WindowConfig)
                 end)
 
                 AddConnection(TextBox.FocusLost, function(e)
-                    if e then
-                        TextBoxConfig.Callback(TextBox.Text)
-                    end
+                    TextBoxConfig.Callback(TextBox.Text)
                 end)
 
                 AddConnection(TextBox.Changed, function(e)
