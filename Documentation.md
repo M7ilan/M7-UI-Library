@@ -219,7 +219,7 @@ Remove(<Table>)
 
 ## Create Elements Dropdown
 ```lua
-local ed1 = Section1:ElementsDropdown({
+local ed1 = Section:ElementsDropdown({
     Name = "Elements Dropdown",
 })
 ```
