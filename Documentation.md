@@ -17,7 +17,7 @@ local Window = M7Lib:Window({
 })
 ```
 
-```md
+```
 Name = <String> - The Title of the window.
 Version = <String> - The version of the window.
 Logo = <String> - The Image ID that will displays on the window.
@@ -32,7 +32,7 @@ local Tab = Window:Tab({
 })
 ```
 
-```md
+```
 Name = <String> - The name of the tab.
 ```
 
@@ -42,7 +42,7 @@ local Section = Tab:CreateSection({
     Name = "Section"
 })
 ```
-```md
+```
 Name = <String> - The name of the section.
 ```
 
@@ -53,7 +53,7 @@ Section:Label({
 })
 ```
 
-```md
+```
 Description = <String> - The description of the label.
 ```
 
@@ -65,7 +65,7 @@ Section:Paragraph({
 })
 ```
 
-```md
+```
 Title = <String> - The title of the paragraph.
 Description = <String> - The description of the paragraph.
 ```
@@ -80,7 +80,7 @@ Section:Button({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the button.
 Callback = <Function> - the function of the button.
 ```
@@ -96,7 +96,7 @@ Section:Toggle({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the toggle.
 Default = <Boolean> - the default value of the toggle.
 Callback = <Function> - the function of the toggle.
@@ -113,7 +113,7 @@ Section:KeyBind({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the keybind.
 Default = <KeyCode> - the default key of the keybind.
 Callback = <Function> - the function of the keybind.
@@ -131,7 +131,7 @@ Section:Slider({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the slider.
 Min = <Number> - the min value of the slider.
 Max = <Number> - the max value of the slider.
@@ -150,7 +150,7 @@ Section:TextBox({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the textBox.
 Default = <String> - the default value of the textBox.
 Clear = <Boolean> - Clears the value after losing focus.
@@ -167,7 +167,7 @@ Section:ColorPicker({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the color picker.
 Callback = <Function> - the function of the color picker.
 ```
@@ -183,7 +183,7 @@ local dd1 = Section:Dropdown({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the dropdown.
 Items = <Table> - the Items of the dropdown.
 Callback = <Function> - the function of the dropdown.
@@ -199,7 +199,7 @@ Section:Button({
 })
 ```
 
-```md
+```
 Add(<Table>)
 ```
 
@@ -213,7 +213,7 @@ Section:Button({
 })
 ```
 
-```md
+```
 Remove(<Table>)
 ```
 
@@ -224,7 +224,7 @@ local ed1 = Section1:ElementsDropdown({
 })
 ```
 
-```md
+```
 Name = <String> - the name of the elements dropdown.
 ```
 
@@ -254,7 +254,7 @@ M7Lib:Notify({
 })
 ```
 
-```md
+```
 Title = <String> - the title of the Notify.
 Desctiption = <Table> - the desctiption of the Notify.
 Time = <Function> - the Time of the Notify.
