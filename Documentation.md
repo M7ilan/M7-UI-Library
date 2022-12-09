@@ -175,7 +175,7 @@ Callback = <Function> - the function of the color picker.
 ## Create Dropdown
 ```lua
 local dd1 = Section:Dropdown({
-    Name = "Difficult",
+    Name = "Difficulties",
     Items = {"Easy", "Normal", "Hard"},
     Callback = function(e)
         print(e)
