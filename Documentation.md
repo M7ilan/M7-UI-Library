@@ -38,7 +38,7 @@ Name = <String> - The name of the tab.
 
 ## Create Section
 ```lua
-local Section = Tab:CreateSection({
+local Section = Tab:Section({
     Name = "Section"
 })
 ```
