@@ -1491,11 +1491,9 @@ function M7Lib:Window(WindowConfig)
                 function DropdownLib:Remove(Items)
                     for i1, v1 in pairs(dropdown.Items) do
                         for i2, v2 in pairs(Items) do
-                            if v1 == v2 then
-                                local index = table.find(dropdown.Items, v2)
-                                table.remove(dropdown.Items, index)
-                                dropdown.Buttons[v2]:Destroy()
-                            end
+                            local index = table.find(dropdown.Items, v2)
+                            table.remove(dropdown.Items, index)
+                            dropdown.Buttons[v2]:Destroy()
                         end
                     end
                 end
