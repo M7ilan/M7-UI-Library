@@ -2144,7 +2144,7 @@ function M7Lib:Window(WindowConfig)
                     TweenService:Create(UIStroke, tweenInfo, {Transparency = 1}):Play()
                 end)
 
-                AddConnection(TextBox.FocusLost, function(e)
+                AddConnection(TextBox.FocusLost, function()
                     TextBoxConfig.Callback(TextBox.Text)
                 end)
 
