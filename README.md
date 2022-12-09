@@ -1,4 +1,4 @@
-# M7 UI Library `BETA`
+# M7 UI Library `New Release`
 
 ## [Discord Server](https://discord.gg/PUWk3xwsjk)
 
