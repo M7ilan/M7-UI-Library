@@ -18,7 +18,7 @@ local Window = M7Lib:Window({
 ```
 
 ```md
-Name = [String] - The Title of the window.
+Name = <String> - The Title of the window.
 Version = <String> - The version of the window.
 Logo = <String> - The Image ID that will displays on the window.
 Color = <Color3> - The color of the window.
