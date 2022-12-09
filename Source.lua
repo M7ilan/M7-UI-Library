@@ -15,7 +15,7 @@ M7UILibrary.Name = "M7"
 M7UILibrary.IgnoreGuiInset = true
 
 if syn then
-    -- syn.protect_gui(M7UILibrary)
+    syn.protect_gui(M7UILibrary)
     M7UILibrary.Parent = CoreGui
 else
     M7UILibrary.Parent = gethui() or CoreGui
