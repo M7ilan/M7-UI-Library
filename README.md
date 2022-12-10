@@ -13,11 +13,12 @@ Here's a Documentation of the M7 UI Library.
 - [x] Button
 - [x] Toggle
 - [x] Keybind
-- [x] Paragraph
+- [x] Paragraph + Changeable
+- [x] Label + Changeable
 - [x] Slider
 - [x] Dropdown
-- [x] Elements Dropdown
 - [x] Add/Remove items in Dropdown
+- [x] Elements Dropdown
 - [ ] Images Dropdown
 - [x] TextBox
 - [x] Search Bar
