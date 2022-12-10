@@ -186,3 +186,18 @@ Section:Button({
         M7Lib:DestroyUI()
     end
 })
+
+local SettingsTab = Window:Tab({
+    Name = "Settings"
+})
+
+local SettingsSections = SettingsTab:Section({
+    Name = "Settings"
+})
+
+SettingsSections:Button({
+    Name = "Destroy UI",
+    Callback = function()
+        M7Lib:DestroyUI()
+    end
+})
