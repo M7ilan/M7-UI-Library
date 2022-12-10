@@ -259,6 +259,8 @@ You can add the following elements to the elements dropdown:
 - Slider
 - Label
 - Paragraph
+- TextBox
+- Color Picker
 
 ## Create Notification
 ```lua
