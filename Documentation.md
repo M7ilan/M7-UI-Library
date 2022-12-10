@@ -48,7 +48,7 @@ Name = <String> - The name of the section.
 
 ## Create Label
 ```lua
-Section:Label({
+local label1 = Section:Label({
     Description = "Description"
 })
 ```
@@ -57,9 +57,16 @@ Section:Label({
 Description = <String> - The description of the label.
 ```
 
+You can change the label using `Set` function.
+```lua
+label1:Set({
+    Descriptoion = "Label Chagned."
+})
+```
+
 ## Create Paragraph
 ```lua
-Section:Paragraph({
+local paragraph1 = Section:Paragraph({
     Title = "Title",
     Description = "Description"
 })
@@ -68,6 +75,14 @@ Section:Paragraph({
 ```
 Title = <String> - The title of the paragraph.
 Description = <String> - The description of the paragraph.
+```
+
+You can change the label using `Set` function.
+```lua
+paragraph1:Set({
+        Title = "Title Changed.",
+    Description = "Description Changed."
+})
 ```
 
 ## Create Button
