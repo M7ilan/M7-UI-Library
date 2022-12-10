@@ -1,6 +1,6 @@
 local M7Lib = {
     Connections = {}
-    -- Callbacks = {}
+    Callbacks = {}
 }
 
 local uis = game:GetService("UserInputService")
@@ -61,10 +61,10 @@ task.spawn(function()
         Connection:Disconnect()
     end
 
-    -- for _, Connection in pairs(M7Lib.Callbacks) do
-    --     Connection(false)
-    -- end
-    -- Callbacks = nil
+    for _, Connection in pairs(M7Lib.Callbacks) do
+        Connection(false)
+    end
+    Callbacks = nil
 end)
 
 function M7Lib:Window(WindowConfig)
@@ -1144,6 +1144,7 @@ function M7Lib:Window(WindowConfig)
                 KeyBindConfig.Name = KeyBindConfig.Name or "KeyBind"
                 KeyBindConfig.Default = KeyBindConfig.Default or Enum.KeyCode.M
                 KeyBindConfig.Callback = KeyBindConfig.Callback or function() end
+                table.insert(M7Lib.Callbacks, KeyBindConfig.Callback)
 
                 KeyBindParent = KeyBindParent or Section
                 KeyBindBackgroundColor = KeyBindBackgroundColor or Color3.fromRGB(30, 33, 36)
