@@ -1144,6 +1144,7 @@ function M7Lib:Window(WindowConfig)
                 KeyBindConfig.Name = KeyBindConfig.Name or "KeyBind"
                 KeyBindConfig.Default = KeyBindConfig.Default or Enum.KeyCode.M
                 KeyBindConfig.Callback = KeyBindConfig.Callback or function() end
+
                 KeyBindParent = KeyBindParent or Section
                 KeyBindBackgroundColor = KeyBindBackgroundColor or Color3.fromRGB(30, 33, 36)
                 KeyBindFrameBackgroundColor = KeyBindFrameBackgroundColor or Color3.fromRGB(40, 43, 48)
@@ -1694,8 +1695,8 @@ function M7Lib:Window(WindowConfig)
                     end
                 end)
 
-                local DropdownLib = {}
-                function DropdownLib:Button(ButtonConfig)
+                local ElementsDropdownLib = {}
+                function ElementsDropdownLib:Button(ButtonConfig)
                     ButtonConfig.Name = ButtonConfig.Name or "Button"
                     ButtonConfig.Callback = ButtonConfig.Callback or function() end
                     
@@ -1705,7 +1706,7 @@ function M7Lib:Window(WindowConfig)
                     }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48))
                 end
 
-                function DropdownLib:Toggle(ToggleConfig)
+                function ElementsDropdownLib:Toggle(ToggleConfig)
                     ToggleConfig.Name = ToggleConfig.Name or "Toggle"
                     ToggleConfig.Default = ToggleConfig.Default or false
                     ToggleConfig.Callback = ToggleConfig.Callback or function() end
@@ -1717,7 +1718,7 @@ function M7Lib:Window(WindowConfig)
                     }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48))
                 end
 
-                function DropdownLib:Slider(SliderConfig)
+                function ElementsDropdownLib:Slider(SliderConfig)
                     SliderConfig.Name = SliderConfig.Name or "Slider"
                     SliderConfig.Min = SliderConfig.Min or 0
                     SliderConfig.Max = SliderConfig.Max or 100
@@ -1731,14 +1732,14 @@ function M7Lib:Window(WindowConfig)
                     }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48), Color3.fromRGB(30, 33, 36))
                 end
 
-                function DropdownLib:Label(LabelConfig)
+                function ElementsDropdownLib:Label(LabelConfig)
                     LabelConfig.Description = LabelConfig.Description or "Label"
                     ItemsLib:Label({
                         Description = LabelConfig.Description
                     }, ElementsDropdownItems)
                 end
 
-                function DropdownLib:Paragraph(ParagraphConfig)
+                function ElementsDropdownLib:Paragraph(ParagraphConfig)
                     ParagraphConfig.Title = ParagraphConfig.Title or "Paragraph"
                     ParagraphConfig.Description = ParagraphConfig.Description or 0
                     ItemsLib:Paragraph({
@@ -1747,7 +1748,7 @@ function M7Lib:Window(WindowConfig)
                     }, ElementsDropdownItems)
                 end
 
-                function DropdownLib:KeyBind(KeyBindConfig)
+                function ElementsDropdownLib:KeyBind(KeyBindConfig)
                     KeyBindConfig.Name = KeyBindConfig.Name or "KeyBind"
                     KeyBindConfig.Default = KeyBindConfig.Default or Enum.KeyCode.N
                     KeyBindConfig.Callback = KeyBindConfig.Callback or function() end
@@ -1758,13 +1759,40 @@ function M7Lib:Window(WindowConfig)
                         Callback = KeyBindConfig.Callback
                     }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48), Color3.fromRGB(30, 33, 36))
                 end
-                return DropdownLib
+
+                function ElementsDropdownLib:TextBox(TextBoxConfig)
+                    TextBoxConfig.Name = TextBoxConfig.Name or "TextBox"
+                    TextBoxConfig.Clear = TextBoxConfig.Clear or false
+                    TextBoxConfig.Default = TextBoxConfig.Default or "Text Box"
+                    TextBoxConfig.Callback = TextBoxConfig.Callback or function() end
+
+                    ItemsLib:TextBox({
+                        Name = TextBoxConfig.Name,
+                        Clear = TextBoxConfig.Clear,
+                        Default = TextBoxConfig.Default,
+                        Callback = TextBoxConfig.Callback
+                    }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48), Color3.fromRGB(30, 33, 36))
+                end
+
+                function ElementsDropdownLib:ColorPicker(ColorPickerConfig)
+                    ColorPickerConfig.Name = ColorPickerConfig.Name or "Color Picker"
+                    ColorPickerConfig.Callback = ColorPickerConfig.Callback or function() end
+
+                    ItemsLib:ColorPicker({
+                        Name = ColorPickerConfig.Name,
+                        Callback = ColorPickerConfig.Callback
+                    }, ElementsDropdownItems, Color3.fromRGB(40, 43, 48))
+                end
+                return ElementsDropdownLib
             end
 
-            function ItemsLib:ColorPicker(ColorPickerConfig)
+            function ItemsLib:ColorPicker(ColorPickerConfig, ColorPickerParent, ColorPickerBackgroundColor)
                 ColorPickerConfig = ColorPickerConfig or {}
                 ColorPickerConfig.Name = ColorPickerConfig.Name or "Color Picker"
                 ColorPickerConfig.Callback = ColorPickerConfig.Callback or function() end
+
+                ColorPickerParent = ColorPickerParent or Section
+                ColorPickerBackgroundColor = ColorPickerBackgroundColor or Color3.fromRGB(30, 33, 36)
 
                 local ColorPickerItem = Instance.new("Frame")
                 local UIStroke = Instance.new("UIStroke")
@@ -1800,8 +1828,8 @@ function M7Lib:Window(WindowConfig)
                 local UIPadding_4 = Instance.new("UIPadding")
                 
                 ColorPickerItem.Name = "Color Picker Item"
-                ColorPickerItem.Parent = Section
-                ColorPickerItem.BackgroundColor3 = Color3.fromRGB(30, 33, 36)
+                ColorPickerItem.Parent = ColorPickerParent
+                ColorPickerItem.BackgroundColor3 = ColorPickerBackgroundColor
                 ColorPickerItem.ClipsDescendants = true
                 ColorPickerItem.Size = UDim2.new(1, 0, 0, 40)
                 
@@ -2081,12 +2109,16 @@ function M7Lib:Window(WindowConfig)
                 end)
             end
 
-            function ItemsLib:TextBox(TextBoxConfig)
+            function ItemsLib:TextBox(TextBoxConfig, TextBoxParent, TextBoxBackgroundColor, TextBoxFrameBackgroundColor)
                 TextBoxConfig = TextBoxConfig or {}
                 TextBoxConfig.Name = TextBoxConfig.Name or "TextBox"
                 TextBoxConfig.Clear = TextBoxConfig.Clear or false
                 TextBoxConfig.Default = TextBoxConfig.Default or "Text Box"
                 TextBoxConfig.Callback = TextBoxConfig.Callback or function() end
+
+                TextBoxParent = TextBoxParent or Section
+                TextBoxBackgroundColor = TextBoxBackgroundColor or Color3.fromRGB(30, 33, 36)
+                TextBoxFrameBackgroundColor = TextBoxFrameBackgroundColor or Color3.fromRGB(40, 43, 48)
 
                 local TextBoxItem = Instance.new("Frame")
                 local UIStroke = Instance.new("UIStroke")
@@ -2099,8 +2131,8 @@ function M7Lib:Window(WindowConfig)
                 local UIPadding_2 = Instance.new("UIPadding")
                 
                 TextBoxItem.Name = "TextBox Item"
-                TextBoxItem.Parent = Section
-                TextBoxItem.BackgroundColor3 = Color3.fromRGB(30, 33, 36)
+                TextBoxItem.Parent = TextBoxParent
+                TextBoxItem.BackgroundColor3 = TextBoxBackgroundColor
                 TextBoxItem.Size = UDim2.new(1, 0, 0, 40)
                 
                 UIStroke.Parent = TextBoxItem
@@ -2133,7 +2165,7 @@ function M7Lib:Window(WindowConfig)
                 TextBoxFrame.Name = "TextBox Frame"
                 TextBoxFrame.Parent = TextBoxItem
                 TextBoxFrame.AnchorPoint = Vector2.new(1, 0)
-                TextBoxFrame.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
+                TextBoxFrame.BackgroundColor3 = TextBoxFrameBackgroundColor
                 TextBoxFrame.Position = UDim2.new(1, -10, 0, 10)
                 TextBoxFrame.Size = UDim2.new(0, 31, 0, 20)
                 TextBoxFrame.ClipsDescendants = true
