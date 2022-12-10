@@ -1484,7 +1484,6 @@ function M7Lib:Window(WindowConfig)
                 end
 
                 function DropdownLib:Remove(Items)
-                    print(unpack(DropdownConfig.Items))
                     for i1, v1 in pairs(DropdownConfig.Items) do
                         for i2, v2 in pairs(Items) do
                             if v1 == v2 then
@@ -1498,7 +1497,6 @@ function M7Lib:Window(WindowConfig)
                             end
                         end
                     end
-                    print(unpack(DropdownConfig.Items))
                 end
                 return DropdownLib
             end
