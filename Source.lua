@@ -1407,8 +1407,6 @@ function M7Lib:Window(WindowConfig)
                     DroppingDown()
                 end)
 
-                local dropdown = {Items = DropdownConfig.Items, Buttons = {}}
-
                 local function AddItems(Items)
                     for _, v in pairs(Items) do
                         local Item = Instance.new("Frame")
@@ -1417,7 +1415,7 @@ function M7Lib:Window(WindowConfig)
                         local TextButton = Instance.new("TextButton")
                         local UICorner = Instance.new("UICorner")
                         
-                        Item.Name = "Item"
+                        Item.Name = v
                         Item.Parent = DropdownItems
                         Item.BackgroundColor3 = Color3.fromRGB(40, 43, 48)
                         Item.BackgroundTransparency = 0.4
@@ -1473,31 +1471,34 @@ function M7Lib:Window(WindowConfig)
                                 DroppingDown()
                             end
                         end)
-
-                        dropdown.Buttons[v] = Item
-
                     end
                 end
-                AddItems(dropdown.Items)
+                AddItems(DropdownConfig.Items)
 
                 local DropdownLib = {}
                 function DropdownLib:Add(Items)
                     for _, v in pairs(Items) do
-                        table.insert(dropdown.Items, v)
+                        table.insert(DropdownConfig.Items, v)
                     end
                     AddItems(Items)
                 end
 
                 function DropdownLib:Remove(Items)
-                    for i1, v1 in pairs(dropdown.Items) do
+                    print(unpack(DropdownConfig.Items))
+                    for i1, v1 in pairs(DropdownConfig.Items) do
                         for i2, v2 in pairs(Items) do
                             if v1 == v2 then
-                                local index = dropdown.Items
-                                table.remove(dropdown.Items, index)
-                                dropdown.Buttons[v2]:Destroy()
+                                for i3, v3 in pairs(DropdownItems:GetChildren()) do
+                                    if v1 == v3.Name then
+                                        v3:Destroy()
+                                    end
+                                end
+                                local index = table.find(DropdownConfig.Items, v1)
+                                table.remove(DropdownConfig.Items, index)
                             end
                         end
                     end
+                    print(unpack(DropdownConfig.Items))
                 end
                 return DropdownLib
             end
