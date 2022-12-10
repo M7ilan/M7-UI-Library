@@ -1,5 +1,5 @@
 local M7Lib = {
-    Connections = {}
+    Connections = {},
     Callbacks = {}
 }
 
