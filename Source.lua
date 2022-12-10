@@ -2168,4 +2168,4 @@ function M7Lib:Window(WindowConfig)
     end
     return TabsLib
 end
-return M7Lib 
+return M7Lib
