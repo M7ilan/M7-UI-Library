@@ -1,7 +1,7 @@
 # Documentation
 The Documentation of M7 UI Library.
 
-## Call the Library
+## Loadstring
 ```lua
 local M7Lib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/M7ilan/M7-UI-Library/main/Source.lua')))()
 ```
