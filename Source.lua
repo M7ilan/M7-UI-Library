@@ -986,13 +986,13 @@ function M7Lib:Window(WindowConfig)
 
             function ItemsLib:Label(LabelConfig, LabelParent)
                 LabelConfig = LabelConfig or {}
-                LabelConfig.Content = LabelConfig.Content or "Content"
+                LabelConfig.Description = LabelConfig.Description or "Description"
                 LabelParent = LabelParent or Section
 
                 local LabelItem = Instance.new("Frame")
                 local UIStroke = Instance.new("UIStroke")
                 local UICorner = Instance.new("UICorner")
-                local Content = Instance.new("TextLabel")
+                local Description = Instance.new("TextLabel")
                 local UIPadding = Instance.new("UIPadding")
                 
                 LabelItem.Name = "LabelItem"
@@ -1009,24 +1009,24 @@ function M7Lib:Window(WindowConfig)
                 UICorner.CornerRadius = UDim.new(0, 10)
                 UICorner.Parent = LabelItem
                 
-                Content.Name = "Content"
-                Content.Parent = LabelItem
-                Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                Content.BackgroundTransparency = 1.000
-                Content.Position = UDim2.new(0, 0, 0, 10)
-                Content.Size = UDim2.new(1, 0, 1, -20)
-                Content.Font = Enum.Font.GothamMedium
-                Content.Text = LabelConfig.Content
-                Content.TextColor3 = WindowConfig.Color
-                Content.TextSize = 20.000
-                Content.TextWrapped = true
-                Content.TextXAlignment = Enum.TextXAlignment.Left
+                Description.Name = "Description"
+                Description.Parent = LabelItem
+                Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                Description.BackgroundTransparency = 1.000
+                Description.Position = UDim2.new(0, 0, 0, 10)
+                Description.Size = UDim2.new(1, 0, 1, -20)
+                Description.Font = Enum.Font.GothamMedium
+                Description.Text = LabelConfig.Description
+                Description.TextColor3 = WindowConfig.Color
+                Description.TextSize = 20.000
+                Description.TextWrapped = true
+                Description.TextXAlignment = Enum.TextXAlignment.Left
                 
-                UIPadding.Parent = Content
+                UIPadding.Parent = Description
                 UIPadding.PaddingLeft = UDim.new(0, 10)
                 UIPadding.PaddingRight = UDim.new(0, 10)
                 
-                while Content.TextFits == false do
+                while Description.TextFits == false do
                     LabelItem.Size = UDim2.new(1, 0, 0, LabelItem.Size.Y.Offset + 20)
                 end
 
@@ -1037,12 +1037,21 @@ function M7Lib:Window(WindowConfig)
                 AddConnection(LabelItem.MouseLeave, function()
                     TweenService:Create(UIStroke, tweenInfo, {Transparency = 1}):Play()
                 end)
+
+                local LabelLib = {}
+                function LabelLib:Set(SetConfig)
+                    SetConfig = SetConfig or {}
+                    SetConfig.Description = SetConfig.Description or "Description Changed."
+                    
+                    Description.Text = SetConfig.Description
+                end
+                return LabelLib
             end
 
             function ItemsLib:Paragraph(ParagraphConfig, ParagraphParent)
                 ParagraphConfig = ParagraphConfig or {}
                 ParagraphConfig.Title = ParagraphConfig.Title or "Title"
-                ParagraphConfig.Content = ParagraphConfig.Content or "Content"
+                ParagraphConfig.Description = ParagraphConfig.Description or "Description"
                 ParagraphParent = ParagraphParent or Section
                 
                 local ParagraphItem = Instance.new("Frame")
@@ -1050,7 +1059,7 @@ function M7Lib:Window(WindowConfig)
                 local UICorner = Instance.new("UICorner")
                 local Title = Instance.new("TextLabel")
                 local UIPadding = Instance.new("UIPadding")
-                local Content = Instance.new("TextLabel")
+                local Description = Instance.new("TextLabel")
                 local UIPadding_2 = Instance.new("UIPadding")
                 
                 ParagraphItem.Name = "ParagraphItem"
@@ -1085,28 +1094,28 @@ function M7Lib:Window(WindowConfig)
                 UIPadding.PaddingLeft = UDim.new(0, 10)
                 UIPadding.PaddingRight = UDim.new(0, 10)
                 
-                Content.Name = "Content"
-                Content.Parent = ParagraphItem
-                Content.AnchorPoint = Vector2.new(0, 0)
-                Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                Content.BackgroundTransparency = 1.000
-                Content.Position = UDim2.new(0, 0, 0, 32)
-                Content.Size = UDim2.new(1, 0, 1, -42)
-                Content.Font = Enum.Font.GothamMedium
-                Content.Text = ParagraphConfig.Content
-                Content.TextColor3 = WindowConfig.Color
-                Content.TextSize = 18.000
-                Content.TextTransparency = 0.500
-                Content.TextWrapped = true
-                Content.TextXAlignment = Enum.TextXAlignment.Left
-                Content.TextYAlignment = Enum.TextYAlignment.Top
+                Description.Name = "Description"
+                Description.Parent = ParagraphItem
+                Description.AnchorPoint = Vector2.new(0, 0)
+                Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                Description.BackgroundTransparency = 1.000
+                Description.Position = UDim2.new(0, 0, 0, 32)
+                Description.Size = UDim2.new(1, 0, 1, -42)
+                Description.Font = Enum.Font.GothamMedium
+                Description.Text = ParagraphConfig.Description
+                Description.TextColor3 = WindowConfig.Color
+                Description.TextSize = 18.000
+                Description.TextTransparency = 0.500
+                Description.TextWrapped = true
+                Description.TextXAlignment = Enum.TextXAlignment.Left
+                Description.TextYAlignment = Enum.TextYAlignment.Top
                 
-                UIPadding_2.Parent = Content
+                UIPadding_2.Parent = Description
                 UIPadding_2.PaddingLeft = UDim.new(0, 10)
                 UIPadding_2.PaddingRight = UDim.new(0, 10)
 
 
-                while Content.TextFits == false do
+                while Description.TextFits == false do
                     ParagraphItem.Size = UDim2.new(1, 0, 0, ParagraphItem.Size.Y.Offset + 20)
                 end
 
@@ -1117,6 +1126,17 @@ function M7Lib:Window(WindowConfig)
                 AddConnection(ParagraphItem.MouseLeave, function()
                     TweenService:Create(UIStroke, tweenInfo, {Transparency = 1}):Play()
                 end)
+
+                local ParagraphLib = {}
+                function ParagraphLib:Set(SetConfig)
+                    SetConfig = SetConfig or {}
+                    SetConfig.Title = SetConfig.Title or "Paragraph Changed."
+                    SetConfig.Description = SetConfig.Description or "Description Changed."
+
+                    Title.Text = SetConfig.Title
+                    Description.Text = SetConfig.Description
+                end
+                return ParagraphLib
             end
 
             function ItemsLib:KeyBind(KeyBindConfig, KeyBindParent, KeyBindBackgroundColor, KeyBindFrameBackgroundColor)
@@ -1484,6 +1504,7 @@ function M7Lib:Window(WindowConfig)
                 end
 
                 function DropdownLib:Remove(Items)
+                    print(unpack(DropdownConfig.Items))
                     for i1, v1 in pairs(DropdownConfig.Items) do
                         for i2, v2 in pairs(Items) do
                             if v1 == v2 then
@@ -1497,6 +1518,7 @@ function M7Lib:Window(WindowConfig)
                             end
                         end
                     end
+                    print(unpack(DropdownConfig.Items))
                 end
                 return DropdownLib
             end
@@ -1710,18 +1732,18 @@ function M7Lib:Window(WindowConfig)
                 end
 
                 function DropdownLib:Label(LabelConfig)
-                    LabelConfig.Content = LabelConfig.Content or "Label"
+                    LabelConfig.Description = LabelConfig.Description or "Label"
                     ItemsLib:Label({
-                        Content = LabelConfig.Content
+                        Description = LabelConfig.Description
                     }, ElementsDropdownItems)
                 end
 
                 function DropdownLib:Paragraph(ParagraphConfig)
                     ParagraphConfig.Title = ParagraphConfig.Title or "Paragraph"
-                    ParagraphConfig.Content = ParagraphConfig.Content or 0
+                    ParagraphConfig.Description = ParagraphConfig.Description or 0
                     ItemsLib:Paragraph({
                         Title = ParagraphConfig.Title,
-                        Content = ParagraphConfig.Content
+                        Description = ParagraphConfig.Description
                     }, ElementsDropdownItems)
                 end
 
