@@ -1,5 +1,5 @@
 # M7 UI Library
-M7 UI library is a library within Roblox that contains most of the features to work with.
+M7 UI library is an open source library used in Roblox platform that has most of the features to work with.
 
 ## [Discord Server](https://discord.gg/PUWk3xwsjk)
 
