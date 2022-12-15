@@ -18,6 +18,7 @@ Here's a Documentation of the M7 UI Library.
 - [x] Label + Changeable
 - [x] Slider
 - [x] Dropdown
+- [x] Changeable Window Color
 - [x] Resizable
 - [x] Minimizable
 - [x] Intro
