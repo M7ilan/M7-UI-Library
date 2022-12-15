@@ -5,7 +5,7 @@ M7 UI library is an open source library used in Roblox platform that has most of
 
 Here's a Discord Server where we can help each other improve M7 UI Library.
 
-Found an issue? Let me know in Discord Server.
+Found an issue or want to share your feedback? Let me know in the Discord Server.
 
 ## **[Documentation](https://github.com/M7ilan/M7-UI-Library/blob/main/Documentation.md)**
 Here's a Documentation of the M7 UI Library.
