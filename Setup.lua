@@ -20,6 +20,11 @@ local label1 = Section:Label({
     Description = "Description"
 })
 
+local paragraph1 = Section:Paragraph({
+    Title = "Title",
+    Description = "Description"
+})
+
 Section:TextBox({
     Name = "Change Label",
     Default = "Text Box",
@@ -29,11 +34,6 @@ Section:TextBox({
             Description = e
         })
     end
-})
-
-local paragraph1 = Section:Paragraph({
-    Title = "Title",
-    Description = "Description"
 })
 
 Section:Button({
