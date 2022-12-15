@@ -18,6 +18,9 @@ Here's a Documentation of the M7 UI Library.
 - [x] Label + Changeable
 - [x] Slider
 - [x] Dropdown
+- [x] Resizable
+- [x] Minimizable
+- [x] Intro
 - [x] Add/Remove items in Dropdown
 - [x] Elements Dropdown
 - [ ] Images Dropdown
