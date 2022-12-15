@@ -1,4 +1,5 @@
-# M7 UI Library `New Release`
+# M7 UI Library
+M7 UI library is a library within Roblox that contains most of the features to work with.
 
 ## [Discord Server](https://discord.gg/PUWk3xwsjk)
 
